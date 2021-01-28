@@ -16,14 +16,8 @@ UPDATE public.tbcandidato
    SET can_pontuacao=(SELECT * FROM pontuar(can_notaport,can_notamat,can_freq));
 
 -- Pré-Classificar todos os Candidatos
-CREATE SEQUENCE 'seq_preclassificacao'
-BEGIN WORK;
 
-UPDATE public.tbcandidato SET can_preclassificacao= NEXTVAL('seq_preclassificacao') ORDER BY can_pontuacao DESC;
-
-SELECT * FROM tbcandidato ORDER BY can_pontuacao DESC;
-
-	--ROLLBACK/COMMIT WORK;
+UPDATE public.tbcandidato SET can_preclassificacao=? WHERE <condition>;
 
 -- Listar os 500 Candidatos melhor pré-classificado
 
