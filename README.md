@@ -1,1 +1,1 @@
-# Faculdade
+# Primeiro projeto da faculdade.
